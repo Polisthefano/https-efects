@@ -1,11 +1,19 @@
 <div class="card-group">
-    <div class="card" *ngFor="let usuario of usuarios">
-        <img [src]="usuario.avatar" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">{{usuario.first_name}} {{usuario.last_name}}.</h5>
-            <p class="card-text">{{usuario.email}}</p>
-            <p class="card-text text-end"><small class="text-muted">{{usuario.id}}</small>
-            </p>
+    <ng-container *ngIf="!loading">
+        <div class="card" *ngFor="let usuario of usuarios">
+            <img [src]="usuario.avatar" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{usuario.first_name}} {{usuario.last_name}}.</h5>
+                <p class="card-text">{{usuario.email}}</p>
+                <p class="card-text text-end"><small class="text-muted">{{usuario.id}}</small>
+                </p>
+            </div>
         </div>
+    </ng-container>
+
+</div>
+<div class="row" *ngIf="loading">
+    <div class="col-12 text-center">
+        <i class="fas fa-spinner fa-spin" style="height: 100px;width:100px"></i>
     </div>
 </div>

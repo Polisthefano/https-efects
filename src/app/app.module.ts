@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClient, HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
-import { ListaComponent } from './usuarios/lista/lista.component';
+
 import { UsuariosModule } from './usuarios/usuarios.module';
-
-
+import { StoreModule } from '@ngrx/store';
+import { appReducers } from './store/app.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { effectsArr } from './store/effects';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,10 @@ import { UsuariosModule } from './usuarios/usuarios.module';
     AppRoutingModule,
     SharedModule,
     UsuariosModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot(appReducers),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot(effectsArr),
   ],
   providers: [],
   bootstrap: [AppComponent]

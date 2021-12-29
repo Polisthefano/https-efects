@@ -6,10 +6,11 @@ import { ListaComponent } from './lista/lista.component';
 
 
 @NgModule({
-  declarations: [UsuarioComponent,ListaComponent],
+  declarations: [UsuarioComponent, ListaComponent],
   imports: [
-    CommonModule
+    CommonModule,
+
   ],
-  exports:[UsuarioComponent,ListaComponent]
+  exports: [UsuarioComponent, ListaComponent]
 })
 export class UsuariosModule { }
