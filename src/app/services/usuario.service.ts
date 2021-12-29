@@ -12,7 +12,7 @@ export class UsuarioService {
 
   }
   getUsers(): Observable<usuario[]> {
-    return this.http.get(`${this.urlBase}users?page=2&delay=9`).pipe(map((user: any) => (user.data))
+    return this.http.get(`${this.urlBase}users?page=2&delay=10`).pipe(map((user: any) => (user.data))
       // , catchError(err => { throw (err) }) //esa es forma de mapear el error antes de suscribirse entonces envias el error que quieras personalizado
     )
   }
